@@ -13,6 +13,7 @@ public class Administrador
     // instance variables - replace the example below with your own
     public ArrayList<String> usuarios;
     public ArrayList<String> almacenUsuarios;
+    
 
     /**
      * Constructor for objects of class Administrador
@@ -33,9 +34,37 @@ public class Administrador
     }
     
     public void mostrarUsuarios(){
-            almacenUsuarios.addAll(usuarios);
-            System.out.println(almacenUsuarios);
+            for(String index:usuarios){
+                System.out.println(usuarios.indexOf(index) +" "+ index);
+            }
+            //almacenUsuarios.addAll(usuarios);
+            //System.out.println(almacenUsuarios);
     }
+    
+    public void eliminarUsuario(int indexUsr){
+        mostrarUsuarios();
+        /*for(String index:usuarios){
+            System.out.println(index);
+        }*/
+        /*if(indexUsr<0){
+            //No pasa nada
+        }else if(indexUsr<numeroUsuarios()){
+            usuarios.remove(indexUsr);
+        }else{
+            //No pasa nada
+        }*/
+    }
+    
+    public void altaUsuario(){
+        String opcion; //= JOptionPane.showInputDialog("Opcion dar de ALTA nuevo usuario: ");
+        //int opcionGestion = Integer.parseInt(opcion);//pasa de string a entero para que lo lea la condicion
+        //System.out.println("Ha elegido altas.");
+        opcion = JOptionPane.showInputDialog("Introduzca nombre de usuario a registar: ");
+        guardarUsuarios(opcion);
+        System.out.println(opcion+" dado de alta en el sistema");
+    }
+    
+    
     
     public void gestionUsuarios(){
 
@@ -53,15 +82,17 @@ public class Administrador
             System.out.println(opcion+" dado de alta en el sistema");
             
         }else if(opcionGestion == 2){
-            System.out.println("Ha elegido bajas.");
-            opcion = JOptionPane.showInputDialog("Introduzca usuario a dar de baja: ");
+            mostrarUsuarios();
+            System.out.println("Ha elegido bajas. \nCual de los usuarios que se muestran \nen consola quiere dar de baja?");
+            opcion = JOptionPane.showInputDialog("IMPORTANTE: Usuarios impresos en consola. \nIntroduzca usuario a dar de baja: ");
             
-            
-            
-            String opcionUsuario = opcion;
-            
-            
-            //usuarios = opcionUsuario;
+            usuarios.remove(opcion);
+           
+            /*for(int i=0; i<usuarios.size(); i++){
+                if(usuarios[i] == opcion){
+                    usuarios[i].remove();
+                }
+            }*/
                 
             System.out.println(usuarios+" dado de baja en el sistema");
         }else if(opcionGestion == 3){
