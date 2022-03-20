@@ -41,7 +41,26 @@ public class Administrador
             //System.out.println(almacenUsuarios);
     }
     
-    public void eliminarUsuario(int indexUsr){
+    public void eliminarUsuario(){
+        String opcion;
+        int opcionInt;
+        
+        System.out.println("Usuarios dados de Alta en el sistem: ");
+        mostrarUsuarios();
+        
+        opcion = JOptionPane.showInputDialog("Lista de usuarios en la consola. \nIntroduzca el número del usuario que quiere dar de baja:");
+        opcionInt = Integer.parseInt(opcion);//pasa de string a entero para que lo lea la condicion
+        
+        usuarios.remove(opcionInt);
+        
+        for(String index:usuarios){
+            if(opcion == index){
+                JOptionPane.showInputDialog("Ha eliminado a "+index+".\nConsulte consola para verificar.");
+            }
+        }
+        
+        System.out.println("");
+        System.out.println("Usuarios restantes en el sistema");
         mostrarUsuarios();
         /*for(String index:usuarios){
             System.out.println(index);
