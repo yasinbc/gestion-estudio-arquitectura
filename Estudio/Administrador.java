@@ -12,6 +12,7 @@ public class Administrador
 {
     // instance variables - replace the example below with your own
     public ArrayList<String> usuarios;
+    public ArrayList<String> almacenUsuarios;
 
     /**
      * Constructor for objects of class Administrador
@@ -20,6 +21,7 @@ public class Administrador
     {
         // initialise instance variables
         usuarios = new ArrayList<String>(); //esto tiene que ser una ArrayList
+        almacenUsuarios = new ArrayList<String>();
     }
     
     private void guardarUsuarios(String usuario){
@@ -30,14 +32,9 @@ public class Administrador
         return usuarios.size();
     }
     
-    public void mostrarUsuarios(int numeroUsuarios){
-        if(numeroUsuarios < 0){
-            //no pasa nada en el programa
-        }else if(numeroUsuarios < numeroUsuarios()){
-            System.out.println(usuarios.get(numeroUsuarios));
-        }else{
-            //No pasa nada en el programa
-        }
+    public void mostrarUsuarios(){
+            almacenUsuarios.addAll(usuarios);
+            System.out.println(almacenUsuarios);
     }
     
     public void gestionUsuarios(){
@@ -58,7 +55,11 @@ public class Administrador
         }else if(opcionGestion == 2){
             System.out.println("Ha elegido bajas.");
             opcion = JOptionPane.showInputDialog("Introduzca usuario a dar de baja: ");
+            
+            
+            
             String opcionUsuario = opcion;
+            
             
             //usuarios = opcionUsuario;
                 
