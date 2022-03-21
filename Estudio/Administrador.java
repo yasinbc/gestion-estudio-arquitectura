@@ -25,7 +25,7 @@ public class Administrador
         almacenUsuarios = new ArrayList<String>();
     }
     
-    public void guardarUsuarios(String usuario){
+    private void guardarUsuarios(String usuario){
         usuarios.add(usuario);
     }
     
@@ -34,11 +34,15 @@ public class Administrador
     }
     
     public void mostrarUsuarios(){
+        if(numeroUsuarios()<1){
+            System.out.println("Todavía no hay usuarios Registrados en el sistema");
+        }else{
+            System.out.println("Lista actual de usuarios: ");   
             for(String index:usuarios){
-                System.out.println(usuarios.indexOf(index) +" "+ index);
+                System.out.println("ID         Nombre Usuarios");
+                System.out.println(usuarios.indexOf(index) +"          "+ index);
             }
-            //almacenUsuarios.addAll(usuarios);
-            //System.out.println(almacenUsuarios);
+        }
     }
     
     public void eliminarUsuario(){
