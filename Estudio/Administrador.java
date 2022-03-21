@@ -37,9 +37,9 @@ public class Administrador
         if(numeroUsuarios()<1){
             System.out.println("Todavía no hay usuarios Registrados en el sistema");
         }else{
-            System.out.println("Lista actual de usuarios: ");   
+            System.out.println("Lista de usuarios: ");   
+            System.out.println("ID         Nombre Usuarios");
             for(String index:usuarios){
-                System.out.println("ID         Nombre Usuarios");
                 System.out.println(usuarios.indexOf(index) +"          "+ index);
             }
         }
@@ -86,7 +86,24 @@ public class Administrador
         System.out.println(opcion+" dado de alta en el sistema");
     }
     
-    
+    public void modificarUsuario(){ 
+        String opcion = "";
+        int opcionInt = 0;
+        String nuevoUsuario = "";
+        
+        System.out.println("Qué usuario desea modificar?");
+        mostrarUsuarios();
+        
+        opcion = JOptionPane.showInputDialog("Lista de usuarios en la consola. \nIntroduzca el número del usuario que quiere modificar:");
+        opcionInt = Integer.parseInt(opcion);//pasa de string a entero para que lo lea la condicion
+        
+        nuevoUsuario = JOptionPane.showInputDialog("Introduzca el nuevo nombre de usuario: ");
+        
+        usuarios.set(opcionInt, nuevoUsuario);
+        
+        System.out.println("");
+        mostrarUsuarios();
+    }
     
     
 }
