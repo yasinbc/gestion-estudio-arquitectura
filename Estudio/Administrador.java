@@ -102,6 +102,6 @@ public class Administrador
         usuarios.set(opcionInt, nuevoUsuario);//primer parametro introduce posicion del usuario, segundo parametro introduce nuevo usuario
         
         System.out.println("");
-        mostrarUsuarios();//muestra los usuarios actuales, incluido el que se ha modificado
+        mostrarUsuarios();//muestra los usuarios actuales, incluido el que se ha modificado121212
     }
 }
