@@ -77,9 +77,24 @@ public class Administrador
     //introduce nuevos usuarios a la lista
     public void altaUsuario(){
         String opcion = "";//variable que almacenará al usuario en la lista
+        String opcionAux = "";//variable auxiliar que almacenará otro nombre en caso de que el introducido este repetido en ArrayList
         opcion = JOptionPane.showInputDialog("Introduzca nombre de usuario a registar: ");//introduce y almacena opcion
-        guardarUsuarios(opcion);//introduce nuevo usuario en la lista
-        System.out.println(opcion+" dado de alta en el sistema");//muestra en consola nuevo usuario ingresado
+        
+        if(usuarios.contains(opcion)){//si se repite el usuario en ArrayList
+            //pregunta nuevo usuario y lo introduce dentro de la variable auxiliar
+            opcionAux = JOptionPane.showInputDialog(opcion+" ya existe en el sista. Introduzca otro usuario, por favor.");
+            if(!usuarios.contains(opcionAux)){//si el nuevo usuario no existe en la ArrayList lo introduce dentro de la lista
+                guardarUsuarios(opcionAux);// lo introduce en la ArrayList
+                System.out.println(opcion+" dado de alta en el sistema");
+            }
+            System.out.println(opcion+" ya existe en el sistema. Por favor intentelo de nuevo.");    
+        }else{//En caso de no repetirse el usuario en el ArrayList, lo introduce
+            guardarUsuarios(opcion);//introduce nuevo usuario en la lista
+            System.out.println(opcion+" dado de alta en el sistema");//muestra en consola nuevo usuario ingresado
+        }
+        
+        //guardarUsuarios(opcion);//introduce nuevo usuario en la lista
+        //System.out.println(opcion+" dado de alta en el sistema");//muestra en consola nuevo usuario ingresado
     }
     
     //Reemplaza un nombre por otro en la lista de usuarios
