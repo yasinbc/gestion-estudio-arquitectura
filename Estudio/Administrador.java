@@ -10,7 +10,8 @@ import java.io.*;
  */
 public class Administrador
 {
-    public ArrayList<String> usuarios; //Contiene todos lo registros de los usuarios   
+    public ArrayList<String> usuarios; //Contiene todos lo registros de los usuarios
+    public Iterator<String> it;
 
     /**
      * Constructor que inizializa las variables
@@ -118,5 +119,11 @@ public class Administrador
         
         System.out.println("");
         mostrarUsuarios();//muestra los usuarios actuales, incluido el que se ha modificado121212
+    }
+    private void muestraUsuariosSinIndex(){
+        it = usuarios.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
     }
 }
